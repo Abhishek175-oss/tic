@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="game">
+    <h1>Tic Tac Toe</h1>
+    <div class="board">
+      <div class="cell" id="c1" role="gridcell"></div>
+      <div class="cell" id="c2" role="gridcell"></div>
+      <div class="cell" id="c3" role="gridcell"></div>
+      <div class="cell" id="c4" role="gridcell"></div>
+      <div class="cell" id="c5" role="gridcell"></div>
+      <div class="cell" id="c6" role="gridcell"></div>
+      <div class="cell" id="c7" role="gridcell"></div>
+      <div class="cell" id="c8" role="gridcell"></div>
+      <div class="cell" id="c9" role="gridcell"></div>
+    </div>
+    <p id="status" class="status" aria-live="polite">X's turn</p>
+    <button id="restart" class="restart" type="button">New game</button>
+  </main>
+  <canvas id="confetti" aria-hidden="true" style="position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10;"></canvas>
+  <script>window.showConfetti=function(){let c=document.getElementById("confetti"),x=c.getContext("2d"),p=[],i=0,end=Date.now()+2500;c.width=window.innerWidth;c.height=window.innerHeight;while(i<100){p.push({x:Math.random()*c.width,y:-Math.random()*200,s:5+Math.random()*7,v:2+Math.random()*4,color:["red","blue","green","orange","purple"][Math.floor(Math.random()*5)]});i++}function fall(){x.clearRect(0,0,c.width,c.height);for(let i=0;i<p.length;i++){p[i].y+=p[i].v;x.fillStyle=p[i].color;x.fillRect(p[i].x,p[i].y,p[i].s,p[i].s)}if(Date.now()<end)requestAnimationFrame(fall);else x.clearRect(0,0,c.width,c.height)}fall()};</script>
+</body>
+</html>
